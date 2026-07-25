@@ -307,10 +307,6 @@
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-  // ================================================================
-  // Supabase-backed content — data is shared online for every visitor,
-  // on any device. Same project used by admin.html.
-  // ================================================================
   const SUPABASE_URL = 'https://qgrrqcmthqwshwqaadnb.supabase.co';
   const SUPABASE_ANON_KEY = 'sb_publishable_A4Xdq7DI_ejQIgZCbY4Jog_Kr3SInhV';
   const jjSb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -320,19 +316,19 @@
 
   <nav class="site-nav" id="siteNav">
     <div class="wrap">
-      <a class="wordmark" data-page="home" href="#home" aria-label="Jeremy Jeradi Ministries and Great Nation Community — home">
+      <a class="wordmark nav-link" data-target="page-home" href="#home" aria-label="Jeremy Jeradi Ministries and Great Nation Community — home">
         <img src="jeremy-jeradi-logo.png" alt="Jeremy Jeradi Ministries logo">
         <span class="nav-divider" aria-hidden="true">|</span>
         <img src="great-nation-community-logo.png" alt="Great Nation Community logo">
       </a>
       <ul class="nav-links">
-        <li><a data-page="home" href="#home">Home</a></li>
-        <li><a data-page="about" href="#about">About</a></li>
-        <li><a data-page="music" href="#music">Music</a></li>
-        <li><a data-page="testimonies" href="#testimonies">Testimonies</a></li>
-        <li><a data-page="devotionals" href="#devotionals">Devotionals</a></li>
-        <li><a data-page="give" href="#give">Partnership</a></li>
-        <li><a data-page="prayer" href="#prayer">Prayer Request</a></li>
+        <li><a class="nav-link" data-target="page-home" href="#home">Home</a></li>
+        <li><a class="nav-link" data-target="page-about" href="#about">About</a></li>
+        <li><a class="nav-link" data-target="page-music" href="#music">Music</a></li>
+        <li><a class="nav-link" data-target="page-testimonies" href="#testimonies">Testimonies</a></li>
+        <li><a class="nav-link" data-target="page-devotionals" href="#devotionals">Devotionals</a></li>
+        <li><a class="nav-link" data-target="page-give" href="#give">Partnership</a></li>
+        <li><a class="nav-link" data-target="page-prayer" href="#prayer">Prayer Request</a></li>
         <li><a class="nav-whatsapp" href="https://wa.me/254705955599" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
           <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.31.64 4.47 1.75 6.32L4 29l7.86-1.71A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.7c-1.98 0-3.83-.55-5.4-1.5l-.39-.23-4.66 1.01 1.02-4.53-.25-.4A9.63 9.63 0 0 1 6.3 15c0-5.35 4.36-9.7 9.7-9.7 5.35 0 9.7 4.35 9.7 9.7 0 5.35-4.35 9.7-9.7 9.7zm5.34-7.27c-.29-.15-1.73-.85-2-.95-.27-.1-.47-.15-.66.15-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43a8.7 8.7 0 0 1-1.61-2c-.17-.29-.02-.44.13-.59.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.17-.24-.58-.48-.5-.66-.51h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.43 0 1.43 1.05 2.82 1.19 3.01.15.2 2.06 3.14 5 4.4.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.73-.71 1.98-1.39.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.56-.34z"/></svg>
           WhatsApp
@@ -342,7 +338,7 @@
     </div>
   </nav>
 
-  <!-- ============ HOME PAGE — short landing page, links out to the real pages ============ -->
+  <!-- HOME PAGE -->
   <div class="page active" id="page-home">
     <section class="hero">
       <div class="wrap hero-inner">
@@ -351,8 +347,8 @@
           <h1>Revival, Worship,<br>Word and <em>Prayer</em></h1>
           <p class="hero-sub">Leading a generation into the presence of God through preaching, worship, and the power of the Holy Spirit — with Jeremy Jeradi.</p>
           <div class="hero-ctas">
-            <a class="btn btn-primary nav-jump" data-page="home" data-jump="home-events" href="#home-events">Upcoming Events</a>
-            <a class="btn btn-ghost" data-page="give" href="#give">Partner with us</a>
+            <a class="btn btn-primary nav-link" data-target="page-home" href="#home-events">Upcoming Events</a>
+            <a class="btn btn-ghost nav-link" data-target="page-give" href="#give">Partner with us</a>
           </div>
         </div>
         <div class="hero-visual">
@@ -372,7 +368,6 @@
       </svg>
     </section>
 
-    <!-- Short intro teaser only — full story lives on the About page -->
     <section class="section-light">
       <div class="wrap">
         <div class="home-intro-grid">
@@ -381,13 +376,12 @@
             <span class="eyebrow">Who is Jeremy Jeradi</span>
             <h2 style="margin-top:var(--space-2);">A minister devoted to the presence of God</h2>
             <p style="margin-top:var(--space-4);">Jeremy Jeradi is a Kenyan minister of the Gospel, preacher, and revivalist — leading worship gatherings, revival meetings, and conferences where he preaches the Word and ministers through prayer and the Holy Spirit. Through Great Nation Community, he leads discipleship and leadership development, advancing worship, prayer, and community transformation. He is also a songwriter and gospel recording artist, carrying the same message he preaches into song, having released songs of blessing and worship such as Nimekutana Na Wewe, Sijasahau, and many more.</p>
-            <a class="btn btn-primary" data-page="about" href="#about">Read the full story</a>
+            <a class="btn btn-primary nav-link" data-target="page-about" href="#about">Read the full story</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Upcoming events — lives here on the home page, not as a separate page -->
     <section id="home-events">
       <div class="wrap">
         <div class="section-header">
@@ -407,5 +401,223 @@
       </div>
     </section>
   </div>
+
+  <!-- ABOUT PAGE -->
+  <div class="page" id="page-about">
+    <div class="page-header">
+      <div class="wrap">
+        <span class="eyebrow">About the Ministry</span>
+        <h1>Called to raise a generation in revival</h1>
+      </div>
+    </div>
+    <section>
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="about-copy">
+            <span class="eyebrow">Our Foundation</span>
+            <h2 style="margin-top:var(--space-2); margin-bottom:var(--space-4);">Rooted in the Word and Spirit</h2>
+            <p>Jeremy Jeradi is a dedicated voice for this season, carrying a distinct burden for prayer, intense worship, and the uncompromised Word of God. His ministry crosses denominational lines, drawing young people and believers into a deeper encounter with God.</p>
+            <p>Through the annual Worship & Prayer Camp and the ongoing gatherings of Great Nation Community, believers are equipped, healed, and set on fire for active Christian witness.</p>
+          </div>
+          <div class="photo-frame tall"><img src="jeremy-jeradi-preaching-photo.jpg" alt="Jeremy Jeradi ministering" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MUSIC PAGE -->
+  <div class="page" id="page-music">
+    <div class="page-header">
+      <div class="wrap">
+        <span class="eyebrow">Discography</span>
+        <h1>Songs of worship and blessing</h1>
+      </div>
+    </div>
+    <section>
+      <div class="wrap">
+        <div class="song-grid">
+          <div class="song-card">
+            <div class="disc"></div>
+            <h3>Nimekutana Na Wewe</h3>
+            <p style="color:var(--color-cream-dim); font-size:0.9rem;">An intimate anthem of encountering the goodness and presence of God.</p>
+          </div>
+          <div class="song-card">
+            <div class="disc"></div>
+            <h3>Sijasahau</h3>
+            <p style="color:var(--color-cream-dim); font-size:0.9rem;">A song of remembrance, gratitude, and acknowledging God's faithfulness.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TESTIMONIES PAGE -->
+  <div class="page" id="page-testimonies">
+    <div class="page-header">
+      <div class="wrap">
+        <span class="eyebrow">Testimonies</span>
+        <h1>Lives touched by grace</h1>
+      </div>
+    </div>
+    <section>
+      <div class="wrap">
+        <div class="testimony-grid">
+          <div class="testimony-card">
+            <div class="quote-mark">&ldquo;</div>
+            <p class="quote">Attending the Worship & Prayer Camp completely shifted my prayer life. The presence of God was tangible.</p>
+            <div>
+              <div class="name">Mercy W.</div>
+              <div class="role">Nairobi, Kenya</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DEVOTIONALS PAGE -->
+  <div class="page" id="page-devotionals">
+    <div class="page-header">
+      <div class="wrap">
+        <span class="eyebrow">Daily Word</span>
+        <h1>Devotionals &amp; Articles</h1>
+      </div>
+    </div>
+    <section>
+      <div class="wrap">
+        <p style="color:var(--color-cream-dim);">New devotionals and teachings will appear here shortly. Stay tuned in the Word!</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- PARTNERSHIP PAGE -->
+  <div class="page" id="page-give">
+    <div class="page-header">
+      <div class="wrap">
+        <span class="eyebrow">Partnership</span>
+        <h1>Support the work of the Gospel</h1>
+      </div>
+    </div>
+    <section>
+      <div class="wrap give-inner">
+        <div class="give-copy">
+          <span class="eyebrow">Join Hands With Us</span>
+          <h2>Partner with Jeremy Jeradi Ministries</h2>
+          <p>Your support helps us take the message of revival, conduct prayer camps, and resource community outreaches across nations. Thank you for standing with us in faith.</p>
+        </div>
+        <div class="give-card">
+          <h3>Give via MPESA / Bank</h3>
+          <p>To partner financially or give a seed offering, please reach out via our official channels or WhatsApp.</p>
+          <a class="btn btn-primary" href="https://wa.me/254705955599?text=Hello,%20I%20would%20like%20to%20partner%20with%20the%20ministry." target="_blank" rel="noopener">Contact to Give</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PRAYER REQUEST PAGE -->
+  <div class="page" id="page-prayer">
+    <div class="page-header">
+      <div class="wrap">
+        <span class="eyebrow">We Stand With You</span>
+        <h1>Submit a Prayer Request</h1>
+      </div>
+    </div>
+    <section>
+      <div class="wrap">
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your prayer request has been received. We are praying with you.');">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email or Phone" required>
+          <textarea placeholder="Share your prayer request..." required></textarea>
+          <button class="btn btn-primary" type="submit" style="width:fit-content;">Send Prayer Request</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="wordmark nav-link" data-target="page-home" href="#home" style="color:var(--color-cream);">
+            <img src="jeremy-jeradi-logo.png" alt="Jeremy Jeradi Ministries logo">
+            <span class="nav-divider" aria-hidden="true">|</span>
+            <img src="great-nation-community-logo.png" alt="Great Nation Community logo">
+          </a>
+          <p style="margin-top:var(--space-3);">Spreading revival, deep worship, and the uncompromised Word of God.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a class="nav-link" data-target="page-home" href="#home">Home</a></li>
+            <li><a class="nav-link" data-target="page-about" href="#about">About</a></li>
+            <li><a class="nav-link" data-target="page-music" href="#music">Music</a></li>
+            <li><a class="nav-link" data-target="page-give" href="#give">Partnership</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ministry</h4>
+          <ul>
+            <li><a class="nav-link" data-target="page-testimonies" href="#testimonies">Testimonies</a></li>
+            <li><a class="nav-link" data-target="page-devotionals" href="#devotionals">Devotionals</a></li>
+            <li><a class="nav-link" data-target="page-prayer" href="#prayer">Prayer Request</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://wa.me/254705955599" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+            <li><a href="https://youtube.com" target="_blank" rel="noopener">YouTube Channel</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Jeremy Jeradi Ministries. All rights reserved.</div>
+        <div class="footer-tagline">Great Nation Community</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a class="whatsapp-fab" href="https://wa.me/254705955599" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="#fff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.31.64 4.47 1.75 6.32L4 29l7.86-1.71A11.93 11.93 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.7c-1.98 0-3.83-.55-5.4-1.5l-.39-.23-4.66 1.01 1.02-4.53-.25-.4A9.63 9.63 0 0 1 6.3 15c0-5.35 4.36-9.7 9.7-9.7 5.35 0 9.7 4.35 9.7 9.7 0 5.35-4.35 9.7-9.7 9.7zm5.34-7.27c-.29-.15-1.73-.85-2-.95-.27-.1-.47-.15-.66.15-.2.29-.76.95-.93 1.14-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.43a8.7 8.7 0 0 1-1.61-2c-.17-.29-.02-.44.13-.59.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.51-.07-.15-.66-1.59-.9-2.17-.24-.58-.48-.5-.66-.51h-.56c-.2 0-.51.07-.78.37-.27.29-1.02 1-1.02 2.43 0 1.43 1.05 2.82 1.19 3.01.15.2 2.06 3.14 5 4.4.7.3 1.24.48 1.67.61.7.22 1.34.19 1.84.12.56-.08 1.73-.71 1.98-1.39.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.56-.34z"/></svg>
+  </a>
+
+  <script>
+    // Robust router and mobile menu toggle fix
+    document.addEventListener('DOMContentLoaded', () => {
+      const navToggle = document.getElementById('navToggle');
+      const siteNav = document.getElementById('siteNav');
+      const navLinks = document.querySelectorAll('.nav-link');
+      const pages = document.querySelectorAll('.page');
+
+      // Toggle mobile menu
+      if (navToggle) {
+        navToggle.addEventListener('click', () => {
+          siteNav.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', siteNav.classList.contains('is-open'));
+        });
+      }
+
+      // Handle page switching
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetPageId = link.getAttribute('data-target');
+          if (targetPageId) {
+            e.preventDefault();
+            pages.forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById(targetPageId);
+            if (targetPage) {
+              targetPage.classList.add('active');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            // Close mobile menu if open
+            siteNav.classList.remove('is-open');
+            if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
