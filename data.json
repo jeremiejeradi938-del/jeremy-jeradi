@@ -4,7 +4,15 @@
   },
   "testimonies": [],
   "devotionals": [],
-  "events": [],
+  "events": [
+    {
+      "id": "ms1sslgso18xk6",
+      "title": "Coming Soon",
+      "event_date": "2026-07-26",
+      "description": "Upcoming events will show here. Stay connected",
+      "created_at": "2026-07-26T12:52:25.132Z"
+    }
+  ],
   "gallery": [
     {
       "id": "ms1shxn0y56902",
