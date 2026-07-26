@@ -15,7 +15,7 @@
   body{ margin:0; font-family:'Segoe UI',Helvetica,Arial,sans-serif; background:var(--ink); color:var(--cream); min-height:100vh; }
   a{ color:inherit; }
   .wrap{ max-width:1000px; margin:0 auto; padding:0 24px; }
-
+ 
   /* ---- LOGIN SCREEN ---- */
   #login-screen{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
   .login-box{ background:rgba(255,247,232,0.04); border:1px solid var(--cream-faint); border-radius:16px; padding:40px; max-width:380px; width:100%; }
@@ -29,23 +29,23 @@
   .btn-outline{ background:transparent; border:1px solid var(--cream-faint); color:var(--cream); width:auto; padding:8px 16px; font-size:0.85rem; }
   .btn-danger{ background:var(--danger); color:#fff; width:auto; padding:8px 14px; font-size:0.82rem; }
   #login-error{ color:var(--danger); font-size:0.85rem; margin-top:-6px; margin-bottom:12px; display:none; }
-
+ 
   /* ---- DASHBOARD ---- */
   #dashboard{ display:none; }
   header{ border-bottom:1px solid var(--cream-faint); padding:20px 0; }
   header .wrap{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
   header h1{ font-size:1.2rem; margin:0; color:var(--gold); }
   header .sub{ font-size:0.8rem; color:var(--cream-dim); }
-
+ 
   nav.tabs{ display:flex; gap:6px; flex-wrap:wrap; padding:20px 0 0; }
   nav.tabs button{ background:rgba(255,247,232,0.04); color:var(--cream-dim); padding:10px 16px; border-radius:8px; font-size:0.85rem; }
   nav.tabs button.active{ background:var(--gold); color:#1a1420; font-weight:700; }
-
+ 
   .panel{ display:none; padding:28px 0 60px; }
   .panel.active{ display:block; }
   .panel h2{ font-size:1.3rem; margin:0 0 4px; }
   .panel .desc{ color:var(--cream-dim); font-size:0.88rem; margin:0 0 24px; }
-
+ 
   .form-card{ background:rgba(255,247,232,0.03); border:1px solid var(--cream-faint); border-radius:12px; padding:22px; margin-bottom:28px; }
   .form-card h3{ margin:0 0 14px; font-size:1rem; color:var(--gold); }
   .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
@@ -53,7 +53,7 @@
   .file-input-wrap{ margin-bottom:12px; }
   .file-input-wrap label{ display:block; font-size:0.82rem; color:var(--cream-dim); margin-bottom:6px; }
   .upload-status{ font-size:0.8rem; color:var(--gold); margin-top:6px; display:none; }
-
+ 
   .item-list{ display:flex; flex-direction:column; gap:12px; }
   .item-row{ background:rgba(255,247,232,0.03); border:1px solid var(--cream-faint); border-radius:10px; padding:16px; display:flex; gap:14px; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; }
   .item-row .item-content{ flex:1; min-width:220px; display:flex; gap:14px; }
@@ -64,10 +64,9 @@
   .empty-note{ color:var(--cream-dim); font-size:0.88rem; font-style:italic; padding:20px 0; }
   .loading-note{ color:var(--cream-dim); font-size:0.88rem; padding:20px 0; }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-
+ 
   <!-- ============ LOGIN SCREEN ============ -->
   <div id="login-screen">
     <div class="login-box">
@@ -78,7 +77,7 @@
       <button class="btn" id="login-btn">Log In</button>
     </div>
   </div>
-
+ 
   <!-- ============ DASHBOARD ============ -->
   <div id="dashboard">
     <header>
@@ -90,20 +89,19 @@
         <button class="btn-outline" id="logout-btn">Log Out</button>
       </div>
     </header>
-
+ 
     <div class="wrap">
       <div style="background:rgba(245,184,65,0.08); border:1px solid rgba(245,184,65,0.3); border-radius:10px; padding:14px 16px; margin-top:20px; font-size:0.85rem; color:var(--cream-dim);">
-        Everything you add here is saved <strong>online</strong> and shows up for every visitor, on any device. Prayer and Partner requests submitted by visitors anywhere will appear here too.
+        Everything you add here is saved straight to the website's GitHub repo, so it shows up for every visitor, on any device, usually within a minute or two. Prayer requests now go straight to your Gmail, and Partner requests go straight to your WhatsApp — you don't need to check this dashboard for those.
       </div>
       <nav class="tabs">
         <button data-tab="testimonies" class="active">Testimonies</button>
         <button data-tab="devotionals">Devotionals</button>
         <button data-tab="events">Events</button>
         <button data-tab="gallery">Gallery</button>
-        <button data-tab="prayer">Prayer Requests</button>
-        <button data-tab="partner">Partner Requests</button>
+        <button data-tab="settings">Settings</button>
       </nav>
-
+ 
       <!-- TESTIMONIES -->
       <section class="panel active" id="panel-testimonies">
         <h2>Testimonies</h2>
@@ -123,7 +121,7 @@
         </div>
         <div class="item-list" id="testimonies-list"><div class="loading-note">Loading...</div></div>
       </section>
-
+ 
       <!-- DEVOTIONALS -->
       <section class="panel" id="panel-devotionals">
         <h2>Weekly Devotionals</h2>
@@ -144,7 +142,7 @@
         </div>
         <div class="item-list" id="devotionals-list"><div class="loading-note">Loading...</div></div>
       </section>
-
+ 
       <!-- EVENTS -->
       <section class="panel" id="panel-events">
         <h2>Upcoming Events</h2>
@@ -160,7 +158,7 @@
         </div>
         <div class="item-list" id="events-list"><div class="loading-note">Loading...</div></div>
       </section>
-
+ 
       <!-- GALLERY -->
       <section class="panel" id="panel-gallery">
         <h2>Gallery</h2>
@@ -177,93 +175,199 @@
         </div>
         <div class="item-list" id="gallery-list"><div class="loading-note">Loading...</div></div>
       </section>
-
-      <!-- PRAYER REQUESTS -->
-      <section class="panel" id="panel-prayer">
-        <h2>Prayer Requests</h2>
-        <p class="desc">Everyone who submits the Prayer Request form on the site shows up here. Not visible to the public.</p>
-        <div class="item-list" id="prayer-list"><div class="loading-note">Loading...</div></div>
-      </section>
-
-      <!-- PARTNER REQUESTS -->
-      <section class="panel" id="panel-partner">
-        <h2>Partner Requests</h2>
-        <p class="desc">Everyone who submits the Partnership form on the site shows up here. Not visible to the public.</p>
-        <div class="item-list" id="partner-list"><div class="loading-note">Loading...</div></div>
+ 
+      <!-- SETTINGS -->
+      <section class="panel" id="panel-settings">
+        <h2>Settings</h2>
+        <p class="desc">Manage your dashboard password and the connection that lets this dashboard publish changes to the website.</p>
+ 
+        <div class="form-card">
+          <h3>Change dashboard password</h3>
+          <input type="password" id="s-current-pw" placeholder="Current password" autocomplete="current-password">
+          <input type="password" id="s-new-pw" placeholder="New password" autocomplete="new-password">
+          <input type="password" id="s-confirm-pw" placeholder="Confirm new password" autocomplete="new-password">
+          <div class="upload-status" id="s-pw-status"></div>
+          <button class="btn" style="width:auto;" id="s-pw-submit">Update Password</button>
+        </div>
+ 
+        <div class="form-card">
+          <h3>Website connection (GitHub)</h3>
+          <p style="font-size:0.85rem; color:var(--cream-dim); margin:0 0 14px; line-height:1.5;">
+            This dashboard needs a GitHub access token to publish your changes to the live website. This is entered once and saved only in this browser — it is never uploaded anywhere.
+            <br><br>
+            To get one: go to <a href="https://github.com/settings/tokens?type=beta" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:underline;">github.com/settings/tokens</a>, create a new "Fine-grained token", give it access to only the <strong>jeremy-jeradi</strong> repository, and under Permissions set <strong>Contents: Read and write</strong>. Then paste it below.
+          </p>
+          <input type="password" id="s-gh-token" placeholder="GitHub token (paste here)" autocomplete="off">
+          <div class="upload-status" id="s-gh-status"></div>
+          <button class="btn" style="width:auto;" id="s-gh-submit">Save Connection</button>
+        </div>
       </section>
     </div>
   </div>
-
+ 
 <script>
   // ================================================================
-  // Supabase-backed admin. Content is shared online for every visitor.
-  // Admin login uses a real Supabase Auth account (fixed email, the
-  // password you set for that account in the Supabase dashboard) so
-  // that write/delete access is actually enforced by the database,
-  // not just hidden in the browser.
+  // GitHub-backed admin. There is no database — this dashboard reads
+  // and writes data.json directly in the jeremy-jeradi GitHub repo
+  // using the GitHub API. That's what makes changes show up on the
+  // live website for every visitor. A GitHub token (set up once,
+  // under Settings) is required for saving; reading never needs one.
+  // Prayer & Partner requests are NOT stored here anymore — they go
+  // straight to Gmail / WhatsApp from the public site's forms.
   // ================================================================
-  const SUPABASE_URL = 'https://qgrrqcmthqwshwqaadnb.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_A4Xdq7DI_ejQIgZCbY4Jog_Kr3SInhV';
-  const ADMIN_EMAIL = 'admin@jeremyjeradiministry.app';
-  const MEDIA_BUCKET = 'site-media';
-  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
+  const GH_OWNER = 'jeremiejeradi938-del';
+  const GH_REPO = 'jeremy-jeradi';
+  const GH_BRANCH = 'main';
+  const DATA_PATH = 'data.json';
+  const DEFAULT_PW_HASH = '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5'; // sha256("12345")
+  const TOKEN_KEY = 'jj_gh_token';
+ 
   function genId(){ return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
   function escapeHtml(str){
     if(!str) return '';
-    return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   }
-
-  // Upload a file to Supabase Storage and return its public URL (or null if no file).
-  async function uploadImage(file, folder){
+  function ghToken(){ return localStorage.getItem(TOKEN_KEY) || ''; }
+ 
+  async function sha256Hex(str){
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+  function b64EncodeUnicode(str){
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) => String.fromCharCode('0x' + p1)));
+  }
+  function b64DecodeUnicode(str){
+    return decodeURIComponent(atob(str).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+  }
+ 
+  async function ghApi(path, opts){
+    opts = opts || {};
+    const headers = Object.assign({ 'Accept': 'application/vnd.github+json' }, opts.headers || {});
+    const token = ghToken();
+    if (token) headers['Authorization'] = 'Bearer ' + token;
+    return fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/' + path, Object.assign({}, opts, { headers }));
+  }
+ 
+  async function ghGetFile(path){
+    const res = await ghApi('contents/' + path + '?ref=' + GH_BRANCH + '&t=' + Date.now());
+    if (res.status === 404) return null;
+    if (!res.ok) throw new Error('Could not read ' + path + ' from GitHub (status ' + res.status + ').');
+    const json = await res.json();
+    return { sha: json.sha, content: b64DecodeUnicode(json.content.replace(/\n/g, '')) };
+  }
+ 
+  function requireToken(){
+    if (!ghToken()) throw new Error('No GitHub connection set up yet. Go to the Settings tab and paste your GitHub token first.');
+  }
+ 
+  async function ghPutFile(path, contentStr, message, isBase64Already){
+    requireToken();
+    const existing = await ghGetFile(path).catch(() => null);
+    const body = {
+      message,
+      branch: GH_BRANCH,
+      content: isBase64Already ? contentStr : b64EncodeUnicode(contentStr)
+    };
+    if (existing && existing.sha) body.sha = existing.sha;
+    const res = await ghApi('contents/' + path, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    if (!res.ok){
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || ('GitHub error saving ' + path + ' (status ' + res.status + ')'));
+    }
+    return res.json();
+  }
+ 
+  // ---- Working copy of data.json, loaded once per session ----
+  let JJ = null;
+  async function ensureData(){
+    if (JJ) return JJ;
+    try{
+      const file = await ghGetFile(DATA_PATH);
+      JJ = file ? JSON.parse(file.content) : {};
+    }catch(e){
+      JJ = {};
+    }
+    JJ.settings = JJ.settings || {};
+    if (!JJ.settings.adminPasswordHash) JJ.settings.adminPasswordHash = DEFAULT_PW_HASH;
+    JJ.testimonies = JJ.testimonies || [];
+    JJ.devotionals = JJ.devotionals || [];
+    JJ.events = JJ.events || [];
+    JJ.gallery = JJ.gallery || [];
+    return JJ;
+  }
+  async function publishData(message){
+    await ghPutFile(DATA_PATH, JSON.stringify(JJ, null, 2), message || 'Update site content');
+  }
+ 
+  async function uploadImageToGithub(file, folder){
     if (!file) return null;
-    const path = folder + '/' + genId() + '-' + file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
-    const { error } = await sb.storage.from(MEDIA_BUCKET).upload(path, file);
-    if (error) { alert('Image upload failed: ' + error.message); return null; }
-    const { data } = sb.storage.from(MEDIA_BUCKET).getPublicUrl(path);
-    return data.publicUrl;
+    requireToken();
+    const base64 = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+    const safeName = genId() + '-' + file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+    const path = 'uploads/' + folder + '/' + safeName;
+    await ghPutFile(path, base64, 'Upload image: ' + safeName, true);
+    return path; // relative path — works on the live site once GitHub Pages rebuilds
   }
-
+ 
+  function setStatus(el, text, isError){
+    if (!el) return;
+    el.style.display = 'block';
+    el.textContent = text;
+    el.style.color = isError ? 'var(--danger)' : 'var(--gold)';
+  }
+ 
+  // ---- LOGIN ----
   const loginScreen = document.getElementById('login-screen');
   const dashboard = document.getElementById('dashboard');
   const loginError = document.getElementById('login-error');
   const loginBtn = document.getElementById('login-btn');
   const passwordInput = document.getElementById('login-password');
-
+ 
   loginBtn.addEventListener('click', async () => {
     const pw = passwordInput.value;
     loginError.style.display = 'none';
     if (!pw){ loginError.textContent = 'Please enter a password.'; loginError.style.display = 'block'; return; }
     loginBtn.disabled = true; loginBtn.textContent = 'Logging in...';
-    const { error } = await sb.auth.signInWithPassword({ email: ADMIN_EMAIL, password: pw });
-    loginBtn.disabled = false; loginBtn.textContent = 'Log In';
-    if (error){
-      loginError.textContent = 'Incorrect password. Try again.';
+    try{
+      await ensureData();
+      const hash = await sha256Hex(pw);
+      if (hash !== JJ.settings.adminPasswordHash){
+        loginError.textContent = 'Incorrect password. Try again.';
+        loginError.style.display = 'block';
+      } else {
+        sessionStorage.setItem('jj_logged_in', '1');
+        showDashboard();
+      }
+    }catch(e){
+      loginError.textContent = 'Could not check password — check your internet connection and try again.';
       loginError.style.display = 'block';
-      return;
     }
-    showDashboard();
+    loginBtn.disabled = false; loginBtn.textContent = 'Log In';
   });
-
   passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') loginBtn.click(); });
-
-  document.getElementById('logout-btn').addEventListener('click', async () => {
-    await sb.auth.signOut();
+ 
+  document.getElementById('logout-btn').addEventListener('click', () => {
+    sessionStorage.removeItem('jj_logged_in');
     location.reload();
   });
-
-  function showDashboard(){
+ 
+  async function showDashboard(){
     loginScreen.style.display = 'none';
     dashboard.style.display = 'block';
-    document.getElementById('logged-in-as').textContent = 'Logged in as admin';
-    loadTestimonies(); loadDevotionals(); loadEvents(); loadGallery(); loadPrayerRequests(); loadPartnerRequests();
+    document.getElementById('logged-in-as').textContent = 'Logged in as admin' + (ghToken() ? '' : ' — ⚠ GitHub connection not set up yet (see Settings)');
+    await ensureData();
+    renderTestimonies(); renderDevotionals(); renderEvents(); renderGallery();
   }
-
+ 
   (async () => {
-    const { data: { session } } = await sb.auth.getSession();
-    if (session) showDashboard();
+    if (sessionStorage.getItem('jj_logged_in') === '1') showDashboard();
   })();
-
+ 
   // ---- TABS ----
   document.querySelectorAll('nav.tabs button').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -273,54 +377,49 @@
       document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
     });
   });
-
+ 
+  function imgTag(path){ return path ? `<img src="${path}" alt="">` : ''; }
+ 
   // ---- TESTIMONIES ----
-  async function loadTestimonies(){
+  function renderTestimonies(){
     const list = document.getElementById('testimonies-list');
-    const { data, error } = await sb.from('testimonies').select('*').order('created_at', { ascending: false });
-    if (error){ list.innerHTML = '<div class="empty-note">Could not load testimonies.</div>'; return; }
+    const data = JJ.testimonies;
     if (!data.length){ list.innerHTML = '<div class="empty-note">No testimonies yet.</div>'; return; }
     list.innerHTML = data.map(t => `
       <div class="item-row">
-        <div class="item-content">
-          ${t.image_url ? `<img src="${t.image_url}" alt="">` : ''}
-          <div class="item-text"><h4>${escapeHtml(t.name)}</h4><p>${escapeHtml(t.quote)}</p></div>
-        </div>
-        <button class="btn-danger" onclick="deleteRow('testimonies','${t.id}', loadTestimonies)">Delete</button>
+        <div class="item-content">${imgTag(t.image_url)}<div class="item-text"><h4>${escapeHtml(t.name)}</h4><p>${escapeHtml(t.quote)}</p></div></div>
+        <button class="btn-danger" onclick="deleteItem('testimonies','${t.id}')">Delete</button>
       </div>`).join('');
   }
-
   document.getElementById('t-submit').addEventListener('click', async () => {
     const name = document.getElementById('t-name').value.trim();
     const quote = document.getElementById('t-quote').value.trim();
     const file = document.getElementById('t-image').files[0];
     const statusEl = document.getElementById('t-status');
     if (!name || !quote){ alert('Please add a name and testimony text.'); return; }
-    if (statusEl){ statusEl.style.display = 'block'; statusEl.textContent = 'Saving...'; }
-    const image_url = await uploadImage(file, 'testimonies');
-    const { error } = await sb.from('testimonies').insert({ name, quote, image_url });
-    if (error) alert('Could not save: ' + error.message);
-    document.getElementById('t-name').value=''; document.getElementById('t-quote').value=''; document.getElementById('t-image').value='';
-    if (statusEl) statusEl.style.display = 'none';
-    loadTestimonies();
+    try{
+      setStatus(statusEl, 'Uploading...');
+      const image_url = await uploadImageToGithub(file, 'testimonies');
+      JJ.testimonies.unshift({ id: genId(), name, quote, image_url, created_at: new Date().toISOString() });
+      setStatus(statusEl, 'Publishing to website...');
+      await publishData('Add testimony: ' + name);
+      document.getElementById('t-name').value=''; document.getElementById('t-quote').value=''; document.getElementById('t-image').value='';
+      statusEl.style.display = 'none';
+      renderTestimonies();
+    }catch(err){ setStatus(statusEl, 'Could not save: ' + err.message, true); }
   });
-
+ 
   // ---- DEVOTIONALS ----
-  async function loadDevotionals(){
+  function renderDevotionals(){
     const list = document.getElementById('devotionals-list');
-    const { data, error } = await sb.from('devotionals').select('*').order('devotional_date', { ascending: false });
-    if (error){ list.innerHTML = '<div class="empty-note">Could not load devotionals.</div>'; return; }
+    const data = JJ.devotionals;
     if (!data.length){ list.innerHTML = '<div class="empty-note">No devotionals yet.</div>'; return; }
     list.innerHTML = data.map(d => `
       <div class="item-row">
-        <div class="item-content">
-          ${d.image_url ? `<img src="${d.image_url}" alt="">` : ''}
-          <div class="item-text"><h4>${escapeHtml(d.title)}</h4><p>${escapeHtml(d.body).slice(0,140)}${d.body.length>140?'…':''}</p><div class="meta">${d.devotional_date}</div></div>
-        </div>
-        <button class="btn-danger" onclick="deleteRow('devotionals','${d.id}', loadDevotionals)">Delete</button>
+        <div class="item-content">${imgTag(d.image_url)}<div class="item-text"><h4>${escapeHtml(d.title)}</h4><p>${escapeHtml(d.body).slice(0,140)}${d.body.length>140?'…':''}</p><div class="meta">${d.devotional_date}</div></div></div>
+        <button class="btn-danger" onclick="deleteItem('devotionals','${d.id}')">Delete</button>
       </div>`).join('');
   }
-
   document.getElementById('d-submit').addEventListener('click', async () => {
     const title = document.getElementById('d-title').value.trim();
     const body = document.getElementById('d-body').value.trim();
@@ -328,99 +427,119 @@
     const file = document.getElementById('d-image').files[0];
     const statusEl = document.getElementById('d-status');
     if (!title || !body || !devotional_date){ alert('Please fill in title, date, and body.'); return; }
-    if (statusEl){ statusEl.style.display = 'block'; statusEl.textContent = 'Saving...'; }
-    const image_url = await uploadImage(file, 'devotionals');
-    const { error } = await sb.from('devotionals').insert({ title, body, devotional_date, image_url });
-    if (error) alert('Could not save: ' + error.message);
-    document.getElementById('d-title').value=''; document.getElementById('d-body').value=''; document.getElementById('d-date').value=''; document.getElementById('d-image').value='';
-    if (statusEl) statusEl.style.display = 'none';
-    loadDevotionals();
+    try{
+      setStatus(statusEl, 'Uploading...');
+      const image_url = await uploadImageToGithub(file, 'devotionals');
+      JJ.devotionals.unshift({ id: genId(), title, body, devotional_date, image_url, created_at: new Date().toISOString() });
+      setStatus(statusEl, 'Publishing to website...');
+      await publishData('Add devotional: ' + title);
+      document.getElementById('d-title').value=''; document.getElementById('d-body').value=''; document.getElementById('d-date').value=''; document.getElementById('d-image').value='';
+      statusEl.style.display = 'none';
+      renderDevotionals();
+    }catch(err){ setStatus(statusEl, 'Could not save: ' + err.message, true); }
   });
-
+ 
   // ---- EVENTS ----
-  async function loadEvents(){
+  function renderEvents(){
     const list = document.getElementById('events-list');
-    const { data, error } = await sb.from('events').select('*').order('event_date', { ascending: true });
-    if (error){ list.innerHTML = '<div class="empty-note">Could not load events.</div>'; return; }
+    const data = JJ.events.slice().sort((a,b) => a.event_date.localeCompare(b.event_date));
     if (!data.length){ list.innerHTML = '<div class="empty-note">No upcoming events yet.</div>'; return; }
     list.innerHTML = data.map(e => `
       <div class="item-row">
         <div class="item-content"><div class="item-text"><h4>${escapeHtml(e.title)}</h4><p>${escapeHtml(e.description||'')}</p><div class="meta">${e.event_date}</div></div></div>
-        <button class="btn-danger" onclick="deleteRow('events','${e.id}', loadEvents)">Delete</button>
+        <button class="btn-danger" onclick="deleteItem('events','${e.id}')">Delete</button>
       </div>`).join('');
   }
-
   document.getElementById('e-submit').addEventListener('click', async () => {
     const title = document.getElementById('e-title').value.trim();
     const event_date = document.getElementById('e-date').value;
     const description = document.getElementById('e-desc').value.trim();
     if (!title || !event_date){ alert('Please fill in a title and date.'); return; }
-    const { error } = await sb.from('events').insert({ title, event_date, description });
-    if (error) alert('Could not save: ' + error.message);
-    document.getElementById('e-title').value=''; document.getElementById('e-date').value=''; document.getElementById('e-desc').value='';
-    loadEvents();
+    try{
+      JJ.events.push({ id: genId(), title, event_date, description, created_at: new Date().toISOString() });
+      await publishData('Add event: ' + title);
+      document.getElementById('e-title').value=''; document.getElementById('e-date').value=''; document.getElementById('e-desc').value='';
+      renderEvents();
+    }catch(err){ alert('Could not save: ' + err.message); JJ.events.pop(); }
   });
-
+ 
   // ---- GALLERY ----
-  async function loadGallery(){
+  function renderGallery(){
     const list = document.getElementById('gallery-list');
-    const { data, error } = await sb.from('gallery_uploads').select('*').order('created_at', { ascending: false });
-    if (error){ list.innerHTML = '<div class="empty-note">Could not load gallery.</div>'; return; }
+    const data = JJ.gallery;
     if (!data.length){ list.innerHTML = '<div class="empty-note">No extra photos yet.</div>'; return; }
     list.innerHTML = data.map(g => `
       <div class="item-row">
-        <div class="item-content"><img src="${g.image_url}" alt=""><div class="item-text"><p>${escapeHtml(g.caption||'(no caption)')}</p></div></div>
-        <button class="btn-danger" onclick="deleteRow('gallery_uploads','${g.id}', loadGallery)">Delete</button>
+        <div class="item-content">${imgTag(g.image_url)}<div class="item-text"><p>${escapeHtml(g.caption||'(no caption)')}</p></div></div>
+        <button class="btn-danger" onclick="deleteItem('gallery','${g.id}')">Delete</button>
       </div>`).join('');
   }
-
   document.getElementById('g-submit').addEventListener('click', async () => {
     const file = document.getElementById('g-image').files[0];
     const caption = document.getElementById('g-caption').value.trim();
     const statusEl = document.getElementById('g-status');
     if (!file){ alert('Please choose a photo.'); return; }
-    if (statusEl){ statusEl.style.display = 'block'; statusEl.textContent = 'Saving...'; }
-    const image_url = await uploadImage(file, 'gallery');
-    const { error } = await sb.from('gallery_uploads').insert({ image_url, caption });
-    if (error) alert('Could not save: ' + error.message);
-    document.getElementById('g-image').value=''; document.getElementById('g-caption').value='';
-    if (statusEl) statusEl.style.display = 'none';
-    loadGallery();
+    try{
+      setStatus(statusEl, 'Uploading...');
+      const image_url = await uploadImageToGithub(file, 'gallery');
+      JJ.gallery.unshift({ id: genId(), image_url, caption, created_at: new Date().toISOString() });
+      setStatus(statusEl, 'Publishing to website...');
+      await publishData('Add gallery photo');
+      document.getElementById('g-image').value=''; document.getElementById('g-caption').value='';
+      statusEl.style.display = 'none';
+      renderGallery();
+    }catch(err){ setStatus(statusEl, 'Could not save: ' + err.message, true); }
   });
-
-  // ---- PRAYER REQUESTS (read-only, filled in by the public site form) ----
-  async function loadPrayerRequests(){
-    const list = document.getElementById('prayer-list');
-    const { data, error } = await sb.from('prayer_requests').select('*').order('created_at', { ascending: false });
-    if (error){ list.innerHTML = '<div class="empty-note">Could not load prayer requests.</div>'; return; }
-    if (!data.length){ list.innerHTML = '<div class="empty-note">No prayer requests yet.</div>'; return; }
-    list.innerHTML = data.map(p => `
-      <div class="item-row">
-        <div class="item-content"><div class="item-text"><h4>${escapeHtml(p.name)} — ${escapeHtml(p.contact)}</h4><p>${escapeHtml(p.message)}</p><div class="meta">${new Date(p.created_at).toLocaleString()}</div></div></div>
-        <button class="btn-danger" onclick="deleteRow('prayer_requests','${p.id}', loadPrayerRequests)">Delete</button>
-      </div>`).join('');
-  }
-
-  // ---- PARTNER REQUESTS (read-only, filled in by the public site form) ----
-  async function loadPartnerRequests(){
-    const list = document.getElementById('partner-list');
-    const { data, error } = await sb.from('partner_requests').select('*').order('created_at', { ascending: false });
-    if (error){ list.innerHTML = '<div class="empty-note">Could not load partner requests.</div>'; return; }
-    if (!data.length){ list.innerHTML = '<div class="empty-note">No partner requests yet.</div>'; return; }
-    list.innerHTML = data.map(p => `
-      <div class="item-row">
-        <div class="item-content"><div class="item-text"><h4>${escapeHtml(p.name)} — ${escapeHtml(p.contact)}</h4><p>${escapeHtml(p.message||'')}</p><div class="meta">${new Date(p.created_at).toLocaleString()}</div></div></div>
-        <button class="btn-danger" onclick="deleteRow('partner_requests','${p.id}', loadPartnerRequests)">Delete</button>
-      </div>`).join('');
-  }
-
-  // ---- DELETE ----
-  async function deleteRow(table, id, reloadFn){
+ 
+  // ---- DELETE (shared) ----
+  const RENDERERS = { testimonies: renderTestimonies, devotionals: renderDevotionals, events: renderEvents, gallery: renderGallery };
+  async function deleteItem(table, id){
     if (!confirm('Delete this permanently?')) return;
-    const { error } = await sb.from(table).delete().eq('id', id);
-    if (error){ alert('Could not delete: ' + error.message); return; }
-    reloadFn();
+    const backup = JJ[table];
+    JJ[table] = JJ[table].filter(x => x.id !== id);
+    try{
+      await publishData('Delete from ' + table);
+      RENDERERS[table]();
+    }catch(err){
+      alert('Could not delete: ' + err.message);
+      JJ[table] = backup;
+    }
+  }
+ 
+  // ---- SETTINGS: change password ----
+  document.getElementById('s-pw-submit').addEventListener('click', async () => {
+    const cur = document.getElementById('s-current-pw').value;
+    const next = document.getElementById('s-new-pw').value;
+    const confirmPw = document.getElementById('s-confirm-pw').value;
+    const statusEl = document.getElementById('s-pw-status');
+    if (!cur || !next || !confirmPw){ setStatus(statusEl, 'Please fill in all three fields.', true); return; }
+    if (next !== confirmPw){ setStatus(statusEl, 'New password and confirmation do not match.', true); return; }
+    if (next.length < 4){ setStatus(statusEl, 'New password should be at least 4 characters.', true); return; }
+    try{
+      const curHash = await sha256Hex(cur);
+      if (curHash !== JJ.settings.adminPasswordHash){ setStatus(statusEl, 'Current password is incorrect.', true); return; }
+      setStatus(statusEl, 'Saving...');
+      JJ.settings.adminPasswordHash = await sha256Hex(next);
+      await publishData('Update admin password');
+      document.getElementById('s-current-pw').value=''; document.getElementById('s-new-pw').value=''; document.getElementById('s-confirm-pw').value='';
+      setStatus(statusEl, 'Password updated. Use the new password next time you log in.');
+    }catch(err){ setStatus(statusEl, 'Could not update password: ' + err.message, true); }
+  });
+ 
+  // ---- SETTINGS: GitHub token ----
+  document.getElementById('s-gh-submit').addEventListener('click', () => {
+    const statusEl = document.getElementById('s-gh-status');
+    const val = document.getElementById('s-gh-token').value.trim();
+    if (!val){ setStatus(statusEl, 'Paste a token first.', true); return; }
+    localStorage.setItem(TOKEN_KEY, val);
+    document.getElementById('s-gh-token').value = '';
+    document.getElementById('logged-in-as').textContent = 'Logged in as admin';
+    setStatus(statusEl, 'Connection saved in this browser. You can now publish changes.');
+  });
+  if (ghToken()){
+    document.getElementById('s-gh-token').placeholder = 'A token is already saved in this browser (leave blank to keep it)';
   }
 </script>
 </body>
 </html>
+ 
