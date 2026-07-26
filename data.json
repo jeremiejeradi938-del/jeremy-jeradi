@@ -2,7 +2,15 @@
   "settings": {
     "adminPasswordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
   },
-  "testimonies": [],
+  "testimonies": [
+    {
+      "id": "ms1u69efkl0g1y",
+      "name": "Test. 105",
+      "quote": "Test 105",
+      "image_url": null,
+      "created_at": "2026-07-26T13:31:02.295Z"
+    }
+  ],
   "devotionals": [],
   "events": [
     {
